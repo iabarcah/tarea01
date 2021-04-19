@@ -17,7 +17,7 @@
 int main(int argc, char** argv) {
     uint64_t niter=1000;
     uint64_t nx=15000;
-	
+	timing tiempo;
     std::string mystr;
     double *a, *b, *c; 
 
@@ -51,22 +51,20 @@ int main(int argc, char** argv) {
     /////////////////////////////
     //  Compute Loop
 	//  Determinar el tiempo de ejecución de este ciclo
+    tiempo.start();
     for (size_t j = 0; j < niter; j++) {
       for (size_t i = 0; i < nx; i++) {
 			a[i] = a[i]*b[i]+c[i];
       }
     }
 
-    
+    tiempo.stop();
     delete [] a;
 	delete [] b;
 	delete [] c;
     
- 	/* Completar esta sección
-	std::cout << "Elapsed time (ms): " << ____________ << std::endl;
-    std::cout << "Elapsed time per iteration (ms/iter): " <<  _________<< std::endl;
-    std::cout << "Elapsed time per iteration per point (ms/iter/operation): " <<
-       ________ << std::endl;
-	*/
+	std::cout << "Elapsed time (ms): " << tiempo<< std::endl;
+    std::cout << "Elapsed time per iteration (ms/iter): " <<  tiempo/niter<< std::endl;
+    std::cout << "Elapsed time per iteration per point (ms/iter/operation): " <<(tiempo/niter)/nx << std::endl;
 }
 
