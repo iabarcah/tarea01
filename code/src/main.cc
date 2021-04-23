@@ -16,7 +16,7 @@
 
 int main(int argc, char** argv) {
     uint64_t niter=1000;
-    uint64_t nx=15000;
+    uint64_t nx=1500;
 	timing tiempo;
     std::string mystr;
     double *a, *b, *c; 
@@ -63,8 +63,8 @@ int main(int argc, char** argv) {
 	delete [] b;
 	delete [] c;
     
-	std::cout << "Elapsed time (ms): " << tiempo<< std::endl;
-    std::cout << "Elapsed time per iteration (ms/iter): " <<  tiempo/niter<< std::endl;
-    std::cout << "Elapsed time per iteration per point (ms/iter/operation): " <<(tiempo/niter)/nx << std::endl;
+	std::cout << "Elapsed time (ms): " << tiempo.elapsed()<< std::endl;
+    std::cout << "Elapsed time per iteration (ms/iter): " <<  tiempo.elapsed()/niter<< std::endl;
+    std::cout << "Elapsed time per iteration per point (ms/iter/operation): " <<(tiempo.elapsed()/niter)/nx << std::endl;
 }
 
